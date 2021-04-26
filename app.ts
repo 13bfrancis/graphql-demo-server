@@ -20,7 +20,12 @@ const resolvers = {
 };
 
 (async () => {
-  const server = new ApolloServer({ typeDefs, resolvers });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    playground: true,
+    introspection: true,
+  });
 
   try {
     const app = await server.listen(process.env.PORT || 4000);
